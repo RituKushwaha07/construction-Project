@@ -1,106 +1,69 @@
+// get data
 
-<footer class="Husmokh">
-<div class="box1">
-    <h1>Contact Info</h1>
-    <p>A-220, Sector -69, Noida, UP-<br />201301, India</p>
-    <p>contact@nationaldrywall.in</p>
-    <p> +91 9312355510</p>
-</div>
-
-
-<div class="box2">
-    <h1>Contact Info</h1>
-    <p>Mon - Friday:<br />10:00 am to 06:00 pm</p>
-    <p>Satday: <br />10:00 am to 02:00 pm</p>
-    <p>Vacation:<br />All Sunday is our vacation</p>
-</div>
+const nameInput = document.querySelector("#name");
+const email = document.querySelector("#email");
+const message = document.querySelector("#message");
+const success = document.querySelector("#succes");
+const errorNodes = document.querySelectorAll(".error");
 
 
 
-<div class="box3">
-    <h1>Our Services</h1>
-    <p> Business</p>
-    <p> Evaluation</p>
-    <p> Work / Career</p>
-</div>
+// validation date
 
+function validateForm() {
 
+    let errorFlag = false;
 
-<div class="box4">
-    <h1>Newsletter</h1>
-   <p>Frontent-Developer</p>
-    <p>Backend-Developer</p>
-    <p>Full-Stack Developer</p>
-</div>
+    clearMessages();
+    if (nameInput.value.length < 1) {
+        errorNodes[0].innerText = "Name cannot  be blank";
+        nameInput.classList.add("error-border");
+        errorFlag = true;
 
-</footer>
+    }
 
+    if (!emailIsValid(email.value)) {
+        errorNodes[1].innerText = "Invalid email address";
+        message.classList.add("error-border");
+        errorFlag = true;
 
+    }
 
+    if (message.value.length < 1) {
+        errorNodes[2].innerText = "Please enter message";
+        message.classList.add("error-border");
+        errorFlag = true;
 
+    }
 
-.Husmokh {
-    background-color: #2e85d6;
-    height: 500px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
+    if (!errorFlag) {
+        success.innerText = "Success!";
+    }
+
 
 }
 
 
-.Husmokh .box1 h1 {
-    margin-bottom: 20px;
-    margin-left: 100px;
-    
+// clear error / success message
 
-}
-
-
-
-p {
-  margin-left: 100px;
-    line-height: 1.8rem;
-
-}
-
-
-
-/* box-2 */
-
-.Husmokh .box2 h1 {
-    margin-bottom: 20px;
-    margin-left: 100px;
-    
-
+function clearMessages() {
+    for (let i = 0; i < errorNodes.length; i++) {
+        errorNodes[i].innerText = "";
+    }
+    success.innerText = "";
+    nameInput.classList.remove("error-border");
+    email.classList.remove("error-border");
+    message.classList.remove("error-border");
 }
 
 
 
 
-
-.Husmokh .box3 h1 {
-    margin-bottom: 20px;
-    margin-left: 100px;
-    
-
-}
+// check if email is valid
 
 
+function emailIsValid(email) {
+    let pattern = /\+@\S+\.\S+/;
+    return pattern.test(email);
 
-
-
-/* .Husmokh .box4 h1 {
-    margin-bottom: 20px;
-    margin-left: 100px;
-    
-
-} */
-
-
-
-
-
-
-
+};
