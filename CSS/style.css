@@ -175,23 +175,23 @@ body {
 
     0%,
     100% {
-        background-image: url("/IMGES/trand1.png");
+        background-image: url("../IMGES/trand1.png");
     }
 
     25% {
-        background-image: url("/IMGES/trand2.png");
+        background-image: url("../IMGES/trand2.png");
     }
 
     50% {
-        background-image: url("/IMGES/trand3.png");
+        background-image: url("../IMGES/trand3.png");
     }
 
     75% {
-        background-image: url("/IMGES/trand4.png");
+        background-image: url("../IMGES/trand4.png");
     }
 
     100% {
-        background-image: url("/IMGES/trand5.png");
+        background-image: url("../IMGES/trand5.png");
     }
 
 }
